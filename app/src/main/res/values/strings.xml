@@ -4,5 +4,13 @@
     <string name="app_name">Note App</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="new_note">Nueva nota</string>
+    <string name="title_activity_new">Nueva nota</string>
+    <string name="save_note">Guardar nota</string>
+    <string name="note_title">Título</string>
+    <string name="note_content">Detalle</string>
+    <string name="title_activity_view">Ver Nota</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+	<string name="delete_note">Borrar</string>
 
 </resources>
