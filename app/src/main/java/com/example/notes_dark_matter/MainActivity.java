@@ -34,7 +34,7 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View view) {
 				Intent NuevaNota = new Intent(MainActivity.this, NewActivity.class);
-				startActivity(NuevaNota);
+				startActivityForResult(NuevaNota, 1);
 			}
 		});
 
@@ -48,6 +48,20 @@ public class MainActivity extends Activity {
 			}
 		});
     }
+
+	@Override
+	public void onActivityResult(int RequestCode, int ResultCode, Intent data) {
+
+		if(RequestCode == 1) {
+			if(ResultCode == RESULT_OK) {
+				Nota nueva_nota = new Nota();
+				nueva_nota.setTitulo(data.getStringExtra("titulo"));
+				nueva_nota.setContenido(data.getStringExtra("contenido"));
+				Notas.add(nueva_nota);
+				adapter.notifyDataSetChanged();
+			}
+		}
+	}
 
 
     @Override
