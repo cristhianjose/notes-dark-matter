@@ -2,20 +2,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.examenparcial.NoteFragment">
+    android:clickable="false"
+    android:descendantFocusability="blocksDescendants"
+    android:focusable="false"
+    android:focusableInTouchMode="false"
+    tools:context="com.example.notes_dark_matter.NoteFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
 	<RelativeLayout
 		android:layout_width="fill_parent"
-		android:layout_height="fill_parent">
+		android:layout_height="fill_parent"
+        android:clickable="false"
+        android:descendantFocusability="blocksDescendants"
+        android:focusable="false"
+        android:focusableInTouchMode="false">
 
 		<TextView
 			android:layout_width="match_parent"
 			android:layout_height="fill_parent"
 			android:text="@string/hello_world"
 			android:textSize="30sp"
-			android:id="@+id/textTitulo"/>
+			android:id="@+id/textTitulo"
+            android:clickable="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
 
 		<Button
 			android:layout_width="wrap_content"
@@ -24,7 +35,10 @@
 			android:id="@+id/btnBorrar"
 			android:layout_alignParentTop="true"
 			android:layout_alignParentRight="true"
-			android:layout_alignParentEnd="true"/>
+			android:layout_alignParentEnd="true"
+            android:clickable="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
 	</RelativeLayout>
 
 </FrameLayout>

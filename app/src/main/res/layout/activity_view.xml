@@ -6,22 +6,22 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.example.examenparcial.ViewActivity">
+    tools:context="com.example.notes_dark_matter.ViewActivity">
 
     <TextView
         android:text="@string/hello_world"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 		android:textSize="20dp"
-		android:id="@+id/textView2"/>
+		android:id="@+id/textTitulo"/>
 
 	<TextView
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
 		android:textAppearance="?android:attr/textAppearanceLarge"
 		android:text="@string/hello_world"
-		android:id="@+id/textView"
-		android:layout_below="@+id/textView2"
+		android:id="@+id/textContenido"
+		android:layout_below="@+id/textTitulo"
 		android:layout_alignParentLeft="true"
 		android:layout_alignParentStart="true"
 		android:textSize="40dp"/>

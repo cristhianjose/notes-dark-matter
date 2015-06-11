@@ -40,11 +40,12 @@ public class MainActivity extends Activity {
 
 		list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			@Override
-			public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+			public void onItemClick(AdapterView<?> parent, View view, int i, long l) {
+				Nota nota = (Nota)parent.getAdapter().getItem(i);
 				Intent VerNota = new Intent(MainActivity.this, ViewActivity.class);
-				//VerNota.putExtra("titulo", Notas[i]);
-				//VerNota.putExtra("contenido", );
-				startActivity(VerNota);
+				VerNota.putExtra("titulo", nota.getTitulo());
+				VerNota.putExtra("contenido", nota.getContenido());
+                startActivityForResult(VerNota, 2);
 			}
 		});
     }
