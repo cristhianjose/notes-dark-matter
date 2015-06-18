@@ -29,6 +29,7 @@ public class MainActivity extends Activity {
 			Notas = datasource.getNotas();
 		}
 
+        //Mandamos los datos al Adaptador
 		if (adapter == null) {
 			adapter = new ListAdapter(this, 0, Notas, datasource);
 		}
@@ -40,7 +41,7 @@ public class MainActivity extends Activity {
 		btnNuevo.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				Intent NuevaNota = new Intent(MainActivity.this, NewActivity.class);
+				Intent NuevaNota = new Intent(MainActivity.this, NewActivity.class);//A que pantalla quiero ir????
 				startActivityForResult(NuevaNota, 1);
 			}
 		});
@@ -66,7 +67,7 @@ public class MainActivity extends Activity {
 				nueva_nota.setTitulo(data.getStringExtra("titulo"));
 				nueva_nota.setContenido(data.getStringExtra("contenido"));
 				Notas.add( datasource.createNota(nueva_nota) );
-				adapter.notifyDataSetChanged();
+				adapter.notifyDataSetChanged();//Sincroniza el adaptador con la pantalla
 			}
 		}
 	}

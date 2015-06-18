@@ -13,6 +13,7 @@ public class ListAdapter extends ArrayAdapter<Nota> {
 	List<Nota> listItems;
 	NotasDataSource dataSource;
 
+    //Hacemos referencia al DataSource
 	public ListAdapter(Context context, int textViewResourceId, List<Nota> items, NotasDataSource datasource) {
 		super(context, textViewResourceId, items);
 		listItems = items;
@@ -24,7 +25,7 @@ public class ListAdapter extends ArrayAdapter<Nota> {
 		View view = convertView;
 		Nota item = getItem(position);
 		if (view == null) {
-			view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_note, null);
+			view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_note, null);//fragment_note es la pantalla que se va a dibujar
 		}
 
 		TextView textTitulo = (TextView) view.findViewById(R.id.textTitulo);
@@ -34,7 +35,7 @@ public class ListAdapter extends ArrayAdapter<Nota> {
 		btnBorrar.setOnClickListener(new View.OnClickListener(){
 			public void onClick(View view){
 				Nota nota = listItems.get(position);
-				dataSource.deleteNota(nota);
+				dataSource.deleteNota(nota);//Una ves vinculado el boton eliminar poder borrar en la base de datos
 				listItems.remove(position);
 				notifyDataSetChanged();
 			}

@@ -9,7 +9,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
 	// Database table and columns
 	public static final String TABLE_NOTES = "notas";
-	public static final String COLUMN_ID = "_id";
+	public static final String COLUMN_ID = "_id"; //_id es recomendado usar como identificador
 	public static final String COLUMN_TITLE = "titulo";
 	public static final String COLUMN_CONTENT = "contenido";
 

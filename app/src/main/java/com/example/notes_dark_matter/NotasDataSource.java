@@ -27,32 +27,33 @@ public class NotasDataSource {
 
 	// close connection
 	public void close() {
-		dbHelper.close();
+		dbHelper.close();//CERRAR CONEXION
 	}
 
+    //INSERT EN LA BASE DE DATOS
 	public Nota createNota(Nota nuevaNota) {
 		ContentValues values = new ContentValues();
 		values.put(MySQLiteHelper.COLUMN_TITLE, nuevaNota.getTitulo());
 		values.put(MySQLiteHelper.COLUMN_CONTENT, nuevaNota.getContenido());
 
 		// insert
-		long newId = database.insert(MySQLiteHelper.TABLE_NOTES, null, values);
+		long newId = database.insert(MySQLiteHelper.TABLE_NOTES, null, values); //Devuelve el nuevo ID
 
 		// get last record
 		Cursor cursor = database.query(MySQLiteHelper.TABLE_NOTES, allColumns,
 				MySQLiteHelper.COLUMN_ID + "=" + newId,
 				null, null, null, null);
-		cursor.moveToFirst();
+		cursor.moveToFirst();//Regresa el cursor al primer registro
 		nuevaNota = cursorToNota(cursor);
 		cursor.close();
-		return nuevaNota;
+		return nuevaNota;//La respuesta de la consulta
 	}
 
 	public void deleteNota(Nota nota) {
 		long id = nota.getId();
 		System.out.println("Eliminando nota con id: " + id);
 		database.delete(MySQLiteHelper.TABLE_NOTES,
-			MySQLiteHelper.COLUMN_ID + " = " + id, null);
+			MySQLiteHelper.COLUMN_ID + " = " + id, null);//Condicion "Where"
 	}
 
 	public ArrayList<Nota>getNotas() {
@@ -68,7 +69,7 @@ public class NotasDataSource {
 			cursor.moveToNext();
 		}
 		cursor.close();
-		return notas;
+		return notas;//Retorna la lista de notas de la base de datos, pero ya como una Array de Objetos
 	}
 
 	private Nota cursorToNota(Cursor cursor) {
