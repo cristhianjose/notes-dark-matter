@@ -11,9 +11,12 @@ import android.widget.TextView;
 
 public class ListAdapter extends ArrayAdapter<Nota> {
 	List<Nota> listItems;
-	public ListAdapter(Context context, int textViewResourceId, List<Nota> items) {
+	NotasDataSource dataSource;
+
+	public ListAdapter(Context context, int textViewResourceId, List<Nota> items, NotasDataSource datasource) {
 		super(context, textViewResourceId, items);
 		listItems = items;
+		dataSource = datasource;
 	}
 
 	@Override
@@ -30,6 +33,8 @@ public class ListAdapter extends ArrayAdapter<Nota> {
 		Button btnBorrar = (Button) view.findViewById(R.id.btnBorrar);
 		btnBorrar.setOnClickListener(new View.OnClickListener(){
 			public void onClick(View view){
+				Nota nota = listItems.get(position);
+				dataSource.deleteNota(nota);
 				listItems.remove(position);
 				notifyDataSetChanged();
 			}

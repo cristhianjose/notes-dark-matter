@@ -30,7 +30,7 @@ public class MainActivity extends Activity {
 		}
 
 		if (adapter == null) {
-			adapter = new ListAdapter(this, 0, Notas);
+			adapter = new ListAdapter(this, 0, Notas, datasource);
 		}
 
 		ListView list = (ListView) findViewById(R.id.listNotas);
