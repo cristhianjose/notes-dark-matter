@@ -16,11 +16,18 @@ public class MainActivity extends Activity {
 
 	private ArrayList<Nota> Notas = new ArrayList<Nota>();
 	private ListAdapter adapter = null;
+	private NotasDataSource datasource = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+		if (datasource == null) {
+			datasource = new NotasDataSource(this);
+			datasource.open();
+			Notas = datasource.getNotas();
+		}
 
 		if (adapter == null) {
 			adapter = new ListAdapter(this, 0, Notas);
@@ -58,7 +65,7 @@ public class MainActivity extends Activity {
 				Nota nueva_nota = new Nota();
 				nueva_nota.setTitulo(data.getStringExtra("titulo"));
 				nueva_nota.setContenido(data.getStringExtra("contenido"));
-				Notas.add(nueva_nota);
+				Notas.add( datasource.createNota(nueva_nota) );
 				adapter.notifyDataSetChanged();
 			}
 		}
